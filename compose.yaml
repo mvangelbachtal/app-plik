@@ -1,0 +1,16 @@
+services:
+  plik:
+    image: rootgg/plik:latest
+    volumes:
+      - ./plikd.cfg:/home/plik/server/plikd.cfg:ro
+      - ./data:/data
+    environment:
+      - VIRTUAL_HOST=plik.mv-angelbachtal.de
+      - LETSENCRYPT_HOST=plik.mv-angelbachtal.de
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
+
