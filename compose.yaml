@@ -1,6 +1,6 @@
 services:
   init-volume:
-    image: alpine:3.22
+    image: alpine:3.24
     user: "0:0"
     volumes:
       - data:/data
