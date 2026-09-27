@@ -1,6 +1,17 @@
 services:
+  init-volume:
+    image: alpine:3.22
+    user: "0:0"
+    volumes:
+      - data:/data
+    command: ["chown", "-R", "1000:1000", "/data"]
+
   plik:
     image: rootgg/plik:1.4.2
+    user: "1000:1000"
+    depends_on:
+      init-volume:
+        condition: service_completed_successfully
     volumes:
       - ./plikd.cfg:/home/plik/server/plikd.cfg:ro
       - data:/data
