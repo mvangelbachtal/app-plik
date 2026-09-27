@@ -3,7 +3,7 @@ services:
     image: rootgg/plik:1.4.2
     volumes:
       - ./plikd.cfg:/home/plik/server/plikd.cfg:ro
-      - ./data:/data
+      - data:/data
     environment:
       - VIRTUAL_HOST=plik.mv-angelbachtal.de
       - LETSENCRYPT_HOST=plik.mv-angelbachtal.de
@@ -13,4 +13,7 @@ services:
 networks:
   proxy:
     external: true
+
+volumes:
+  data:
 
