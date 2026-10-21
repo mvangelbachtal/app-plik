@@ -7,7 +7,7 @@ services:
     command: ["chown", "-R", "1000:1000", "/data"]
 
   plik:
-    image: rootgg/plik:1.4.2
+    image: rootgg/plik:1.4.3
     user: "1000:1000"
     depends_on:
       init-volume:
